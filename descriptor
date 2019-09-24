@@ -1,0 +1,46 @@
+{
+scopes: [
+"read",
+"write",
+"act_as_user"
+],
+authentication: {
+type: "jwt"
+},
+vendor: {
+url: "https://sentry.io",
+name: "Sentry"
+},
+name: "Sentry",
+key: "127.0.0.1.jira",
+lifecycle: {
+uninstalled: "/extensions/jira/uninstalled/",
+installed: "/extensions/jira/installed/"
+},
+modules: {
+configurePage: {
+url: "/extensions/jira/configure",
+name: {
+value: "Configure Sentry Add-on"
+},
+key: "configure-sentry"
+},
+postInstallPage: {
+url: "/extensions/jira/configure",
+name: {
+value: "Configure Sentry Add-on"
+},
+key: "post-install-sentry"
+},
+webhooks: [
+{
+url: "/extensions/jira/issue-updated/",
+excludeBody: false,
+event: "jira:issue_updated"
+}
+]
+},
+baseUrl: "https://sentry.diga.pt",
+apiVersion: 1,
+description: "Sentry"
+}
